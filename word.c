@@ -8,6 +8,7 @@
  */
 
 #include <stdio.h>
+#include <ctype.h>
 
 #include "estruct.h"
 #include "edef.h"
@@ -377,6 +378,7 @@ int inword(void)
 	if (curwp->w_doto == llength(curwp->w_dotp))
 		return FALSE;
 	c = lgetc(curwp->w_dotp, curwp->w_doto);
+    return !isspace(c);
 #if	PKCODE
 	if (isletter(c))
 #else
