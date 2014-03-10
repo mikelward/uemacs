@@ -828,8 +828,15 @@ int killtext(int f, int n)
 			nextp = lforw(nextp);
 		}
 	} else {
-		mlwrite("neg kill");
-		return FALSE;
+		chunk = curwp->w_doto;
+		curwp->w_doto = 0;
+		while (n++) {
+			nextp = lback(curwp->w_dotp);
+			if (nextp == curbp->b_linep)
+				break;
+			curwp->w_dotp = nextp;
+			chunk += llength(curwp->w_dotp) + 1;
+		}
 	}
 	return ldelete(chunk, TRUE);
 }

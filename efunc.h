@@ -90,6 +90,7 @@ extern int indent(int f, int n);
 extern int forwdel(int f, int n);
 extern int backdel(int f, int n);
 extern int killtext(int f, int n);
+extern int negkill(int n);
 extern int setemode(int f, int n);
 extern int delmode(int f, int n);
 extern int setgmode(int f, int n);
